@@ -1,0 +1,15 @@
+[flake8]
+
+exclude=
+    __pycache__,
+    documentation/,
+    env/,
+    .gitignore,
+    README.md,
+    requirements.txt,
+
+
+max-line-length = 119
+max-doc-length = 119
+
+max-complexity = 10
