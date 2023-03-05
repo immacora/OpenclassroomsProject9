@@ -124,6 +124,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# URL to use in templates for the uploaded files
+# Absolute filesystem path to the directory for user-uploaded files
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 # Custom User
 # https://docs.djangoproject.com/fr/4.1/topics/auth/customizing/
 AUTH_USER_MODEL = "users.CustomUser"
