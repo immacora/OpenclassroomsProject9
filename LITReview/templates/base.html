@@ -1,10 +1,18 @@
 <html lang="fr">
     <head>
         <title>{% block title %}LITReview{% endblock %}</title>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Add additional CSS/JS/IMAGES in static file -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
     </head>
     <body>
+        <img src="{% static 'logo.png' %}" alt="logo" width="30"  class="d-inline-block align-text-top">
+        
         {% block content %}
         {% endblock %}
     </body>
