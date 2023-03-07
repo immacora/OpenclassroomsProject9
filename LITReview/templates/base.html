@@ -1,19 +1,42 @@
 <html lang="fr">
     <head>
-        <title>{% block title %}LITReview{% endblock %}</title>
-
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}LITReview{% endblock %}</title>
 
         <!-- Add additional CSS/JS/IMAGES in static file -->
         {% load static %}
-        <link rel="stylesheet" href="{% static 'styles.css' %}">
-        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}"/>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     </head>
     <body>
-        <img src="{% static 'logo.png' %}" alt="logo" width="30"  class="d-inline-block align-text-top">
-        
-        {% block content %}
-        {% endblock %}
+        <a href="{% url 'login' %}">Test d'affichage pour connexion</a>
+        <a href="{% url 'signup' %}">Test d'affichage pour inscription</a>
+        <header>
+            <img id="logo" src="{% static 'images/logo.png' %}" alt="logo" class="d-inline-block align-text-top">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Flux</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'posts' %}">Posts</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'follows' %}">Abonnements</a>
+                    </li>
+                </ul>
+            </nav>
+            {{ user.get_username }}
+            <a href="{% url 'logout' %}">Se déconnecter</a>
+        </header>
+
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <!-- JavaScript -->
+        <script src="{% static 'js/scripts.js' %}"></script>
     </body>
 </html>

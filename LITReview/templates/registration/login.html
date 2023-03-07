@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}LITReview – Connexion{% endblock %}
+
+{% block content %}
+    <h2>Inscrivez-vous maintenant</h2>
+    <button type="submit">S'inscrire</button>
+
+    <h2>Connectez-vous</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Se connecter</button>
+    </form>
+{% endblock %}
