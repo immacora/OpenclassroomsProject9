@@ -3,6 +3,14 @@
 {% block title %}LITReview – Flux{% endblock %}
 
 {% block content %}
-    <h1>Homepage</h1>
-    <p>Home : page de flux</p>
+
+    <div class="row justify-content-center">
+        <div class="col text-end">
+            <a class="btn btn-success" href="{% url 'home' %}" role="button">Demander une critique</a>
+        </div>
+        <div class="col text-start">
+            <a class="btn btn-success" href="{% url 'home' %}" role="button">Créer une critique</a>
+        </div>
+    </div>
+
 {% endblock %}
