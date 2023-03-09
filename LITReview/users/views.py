@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 from .forms import CustomUserCreationForm
@@ -9,5 +10,6 @@ class SignUpView(CreateView):
     template_name = "registration/signup.html"
 
 
-class FollowsPageView(TemplateView):
+class FollowsPageView(LoginRequiredMixin, TemplateView):
     template_name = "follows.html"
+    login_url = 'login'
