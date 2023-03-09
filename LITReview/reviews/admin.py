@@ -1,8 +1,17 @@
 from django.contrib import admin
-from .models import Review, Ticket
+from .models import Ticket, Review
+
+
+class ReviewInline(admin.TabularInline):
+    model = Review
+    fields = ('ticket', 'headline', 'rating', 'body', 'user', 'time_created')
+    readonly_fields = ('time_created',)
 
 
 class TicketAdmin(admin.ModelAdmin):
+    inlines = [
+        ReviewInline,
+    ]
     list_display = ('title', 'user', 'time_created', 'image', 'description')
     search_fields = ['title']
 

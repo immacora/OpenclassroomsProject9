@@ -13,4 +13,13 @@
         </div>
     </div>
 
+    {% for ticket in ticket_list %}
+        <div>
+            <h3>{{ ticket.title }}</h3>
+            {% for review in ticket.reviews.all %}
+                <li>{{ review.review }} {{ review.headline }}</li>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
 {% endblock %}

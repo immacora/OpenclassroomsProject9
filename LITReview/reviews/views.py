@@ -3,9 +3,10 @@ from django.views.generic import ListView, DetailView, TemplateView
 from .models import Ticket, Review
 
 
-class HomePageView(LoginRequiredMixin, ListView):
-    template_name = 'home.html'
+class FeedsPageView(LoginRequiredMixin, ListView):
     model = Ticket
+    context_object_name = 'ticket_list'
+    template_name = 'home.html'
     login_url = 'login'
 
 
