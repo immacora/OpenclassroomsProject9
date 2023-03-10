@@ -4,4 +4,32 @@
 
 {% block content %}
     <h2 class="text-center">Vos posts</h2>
+
+    {% for ticket in ticket_list %}
+        <div class="d-flex justify-content-center">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <p>{{ ticket.user }} a demandé une critique</p>
+                    <p>{{ ticket.time_created|time:"H:i" }}, {{ ticket.time_created|date:"D d M Y" }}</p>
+                </div>
+                <div class="row g-0 position-relative">
+                    {% if ticket.image %}
+                        <div class="col-md-4">
+                            <img src="{{ ticket.image.url}}" class="img-fluid rounded-start images" alt="{{ ticket.title }}">
+                        </div>
+                    {% endif %}
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ ticket.title }}</h5>
+                            <p class="card-text">{{ ticket.description }}</p>
+                        </div>
+                        <div>
+                            <a class="stretched-link btn btn-success card-btn" href="{% url 'ticket_edit' ticket.pk %}" role="button">Modifier</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    
 {% endblock %}
