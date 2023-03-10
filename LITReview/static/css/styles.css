@@ -21,6 +21,11 @@ header {
   font-size: 1.2rem;
 }
 
+/* FEEDS */
+.feeds {
+  padding-top: 2rem;
+}
+
 /* BUTTON */
 .btn {
   font-size: 1.1rem;
@@ -54,6 +59,35 @@ header {
 }
 .logout span {
   padding: 0 0.5rem;
+}
+
+/* CARD */
+.card {
+  background-color: #F2DEC4;
+  width: 40rem;
+  margin-top: 2rem;
+}
+
+.card-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.images {
+  max-width: 10rem;
+}
+
+.card-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
 }
 
 /* NAVIGATION */
