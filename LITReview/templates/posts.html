@@ -23,8 +23,15 @@
                             <h5 class="card-title">{{ ticket.title }}</h5>
                             <p class="card-text">{{ ticket.description }}</p>
                         </div>
-                        <div>
-                            <a class="stretched-link btn btn-success card-btn" href="{% url 'ticket_edit' ticket.pk %}" role="button">Modifier</a>
+                    </div>
+                </div>
+                <div class="card-footer text-center text-muted">
+                    <div class="row justify-content-center">
+                        <div class="col text-end">
+                            <a class="btn btn-success" href="{% url 'ticket_edit' ticket.pk %}" role="button">Modifier</a>
+                        </div>
+                        <div class="col text-start">
+                            <a class="btn btn-success" href="{% url 'ticket_delete' ticket.pk %}" role="button">Supprimer</a>
                         </div>
                     </div>
                 </div>
