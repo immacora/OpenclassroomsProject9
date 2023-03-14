@@ -20,7 +20,9 @@
                     <p class="card-text">{{ ticket.description }}</p>
                 </div>
                 <div class="card-btn">
-                    <a class="stretched-link btn btn-success" href="{% url 'home' %}" role="button">Créer une critique</a>
+                    {% if not ticket.reviews.all %}
+                        <a class="stretched-link btn btn-success" href="{% url 'home' %}" role="button">Créer une critique</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
