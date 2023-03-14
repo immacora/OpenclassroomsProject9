@@ -2,8 +2,9 @@ from django.contrib import admin
 from .models import Ticket, Review
 
 
-class ReviewInline(admin.TabularInline):
+class ReviewInline(admin.StackedInline):
     model = Review
+    extra = 0
     fields = ('ticket', 'headline', 'rating', 'body', 'user', 'time_created')
     readonly_fields = ('time_created',)
 
