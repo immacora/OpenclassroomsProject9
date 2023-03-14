@@ -47,6 +47,11 @@ header {
   background-color: #595959;
 }
 
+/* STAR */
+.bi {
+  padding: 0.2rem;
+}
+
 /* LOGO */
 #logo {
   width: 3rem;
@@ -66,6 +71,8 @@ header {
   background-color: #F2DEC4;
   width: 40rem;
   margin-top: 2rem;
+  margin: 2rem;
+  border-color: #595959;
 }
 
 .card-header {
@@ -78,6 +85,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-color: #595959;
 }
 
 .images {
@@ -88,6 +96,10 @@ header {
   position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
+}
+
+.card-footer {
+  border-color: #595959;
 }
 
 /* NAVIGATION */
