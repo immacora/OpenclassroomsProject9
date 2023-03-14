@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}LITReview – {{ object.title }}{% endblock %}
+
+{% block content %}
+
+    {% if ticket.reviews.all %}
+        <h2 class="text-center">Critique : {{ object.title }}</h2>
+        {% for review in ticket.reviews.all %}
+            {% include 'include/review_snippet.html' %}
+        {% endfor %}
+    {% else %}
+        <h2 class="text-center">Ticket : {{ object.title }}</h2>
+        {% include 'include/ticket_snippet.html' %}
+    {% endif %}
+
+    <div class="row">
+        <div class="text-center">
+            <a class="btn btn-success" href="{% url 'home' %}" role="button">Revenir à l'accueil</a>
+        </div>
+    </div>
+
+{% endblock content %}
