@@ -6,13 +6,21 @@
     <h2 class="text-center">Vos posts</h2>
 
     {% for ticket in ticket_list %}
+
         {% if ticket.reviews.all %}
             {% for review in ticket.reviews.all %}
+            {% if review.user.id == user.id %}
                 {% include 'include/review_snippet.html' %}
-                {% endfor %}
+            {% endif %}
+            {% endfor %}
         {% else %}
-            {% include 'include/ticket_snippet.html' %}
+            {% if ticket.user.id == user.id %}
+                {% include 'include/ticket_snippet.html' %}
+            {% endif %}
         {% endif %}
+
     {% endfor %}
+
+
     
 {% endblock %}
