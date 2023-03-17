@@ -4,9 +4,9 @@
 
 {% block content %}
 
-    {% if ticket.reviews.all %}
+    {% if ticket.review_ticket.all %}
         <h2 class="text-center">Critique : {{ object.title }}</h2>
-        {% for review in ticket.reviews.all %}
+        {% for review in ticket.review_ticket.all %}
             {% include 'include/review_snippet.html' %}
         {% endfor %}
     {% else %}
