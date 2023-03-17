@@ -42,11 +42,6 @@ header {
   background-color: #D9B391;
 }
 
-.btn-outline-dark:hover {
-  color: #F2F2F2;
-  background-color: #595959;
-}
-
 /* STAR */
 .bi {
   padding: 0.2rem;
@@ -99,6 +94,11 @@ header {
 }
 
 .card-footer {
+  border-color: #595959;
+}
+
+.card .wrapper {
+  background-color: aqua;
   border-color: #595959;
 }
 
