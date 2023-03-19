@@ -1,0 +1,121 @@
+/* BASIC STYLE */
+body {
+  background-color: #F2F2F2;
+  padding-top: 120px;
+}
+
+h2 {
+  color: #595959;
+  margin-bottom: 2rem;
+}
+
+/* TYPOGRAPHY */
+body {
+  color: #000;
+}
+
+/* HEADER */
+header {
+  background-color: #F2DEC4;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+/* FEEDS */
+.feeds {
+  padding-top: 2rem;
+}
+
+/* FOOTER */
+footer {
+  background-color: #F2DEC4;
+  color: #595959;
+}
+
+/* BUTTON */
+.btn {
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.btn-success {
+  background-color: #F2DEC4;
+  border-color: #595959;
+}
+.btn-success:hover {
+  color: #000;
+  background-color: #D9B391;
+}
+
+.btn-outline-dark:hover {
+  color: #F2F2F2;
+  background-color: #595959;
+}
+
+/* STAR */
+.bi {
+  padding: 0.2rem;
+}
+
+/* LOGO */
+#logo {
+  width: 3rem;
+  margin: 0.5rem;
+}
+
+/* LOGOUT */
+.logout {
+  padding-top: 0.2rem;
+}
+.logout span {
+  padding: 0 0.5rem;
+}
+
+/* CARD */
+.card {
+  background-color: #F2DEC4;
+  width: 40rem;
+  margin-top: 2rem;
+  margin: 2rem;
+  border-color: #595959;
+}
+
+.card-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-color: #595959;
+}
+
+.images {
+  max-width: 10rem;
+}
+
+.card-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+.card-footer {
+  border-color: #595959;
+}
+
+/* NAVIGATION */
+.nav-link {
+  color: #595959;
+}
+.nav-link:hover {
+  color: #A68365;
+}
+
+.active {
+  color: #000;
+}
