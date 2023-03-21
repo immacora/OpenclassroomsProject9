@@ -5,18 +5,18 @@ from .models import Ticket, Review
 class ReviewInline(admin.StackedInline):
     model = Review
     extra = 0
-    fields = ('ticket', 'headline', 'rating', 'body', 'user', 'time_created')
+    fields = ('ticket', 'headline', 'rating', 'body', 'author', 'time_created')
     #readonly_fields = ('time_created',)
 
 
 class TicketAdmin(admin.ModelAdmin):
     inlines = [ReviewInline,]
-    list_display = ('title', 'user', 'time_created', 'image', 'description')
+    list_display = ('title', 'author', 'time_created', 'image', 'description')
     #readonly_fields = ('time_created',)
 
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('ticket', 'user', 'time_created', 'headline', 'rating', 'body')
+    list_display = ('ticket', 'author', 'time_created', 'headline', 'rating', 'body')
     #readonly_fields = ('time_created',)
 
 
