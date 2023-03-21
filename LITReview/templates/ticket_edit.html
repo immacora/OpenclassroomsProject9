@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}LITReview – Modifier votre ticket{% endblock %}
+
+{% block content %}
+
+    <h2 class="text-center">Modifier votre ticket</h2>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        
+
+        {% if ticket.image %}
+            <div class="col-md-4">
+                <img src="{{ ticket.image.url}}" class="img-fluid rounded-start images" alt="{{ ticket.title }}">
+            </div>
+        {% endif %}
+        
+        <div class="col text-end">
+            <input class="btn btn-success" type="submit" value="Envoyer">
+            <a class="btn btn-success" href="{% url 'posts' %}" role="button">Annuler</a>
+        </div>
+        <hr style="color: transparent;">
+    </form>
+
+{% endblock content %}

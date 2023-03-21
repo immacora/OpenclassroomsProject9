@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+    <div class="card mb-3">
+        <div class="card-header">
+            {% if ticket.author.id == user.id %}
+                <p>Vous avez demandé une critique</p> 
+            {% else %}
+                <p>{{ ticket.author }} a demandé une critique</p> 
+            {% endif %}
+            <p>{{ ticket.time_created|time:"H:i" }}, {{ ticket.time_created|date:"D d M Y" }}</p>
+        </div>
+        <div class="row g-0 position-relative">
+            {% if ticket.image %}
+                <div class="col-md-4">
+                    <img src="{{ ticket.image.url}}" class="img-fluid rounded-start images" alt="{{ ticket.title }}">
+                </div>
+            {% endif %}
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ ticket.title }}</h5>
+                    <p class="card-text">{{ ticket.description }}</p>
+                </div>
+                <div class="card-btn">
+                    {% if not ticket.review_ticket.all and not ticket.author.id == user.id and request.path == '/' %}
+                        <a class="stretched-link btn btn-success" href="#" role="button">Créer une critique</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if ticket.author.id == user.id and not request.path == '/' %}
+            <div class="card-footer text-center text-muted">
+                <div class="row justify-content-center">
+                    <div class="col text-end">
+                        <a class="btn btn-success" href="{% url 'ticket_edit' ticket.pk %}" role="button">Modifier</a>
+                    </div>
+                    <div class="col text-start">
+                        <a class="btn btn-success" href="{% url 'ticket_delete' ticket.pk %}" role="button">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
