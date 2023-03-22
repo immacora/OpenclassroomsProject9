@@ -108,6 +108,22 @@ footer {
   border-color: #595959;
 }
 
+.card_detail .card-header, .card-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+}
+
+.card_detail .card-title, .card-text {
+  font-weight: 500;
+  color: #000;
+  text-align: left;
+}
+
+.card_detail .card-text {
+  font-weight: 400;
+}
+
 /* NAVIGATION */
 .nav-link {
   color: #595959;

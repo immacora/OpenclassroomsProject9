@@ -1,18 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}LITReview – {{ object.title }}{% endblock %}
+{% block title %}LITReview – Détail du ticket {{ object.title }}{% endblock %}
 
 {% block content %}
 
-    {% if ticket.review_ticket.all %}
-        <h2 class="text-center">Critique : {{ object.title }}</h2>
-        {% for review in ticket.review_ticket.all %}
-            {% include 'include/review_snippet.html' %}
-        {% endfor %}
-    {% else %}
-        <h2 class="text-center">Ticket : {{ object.title }}</h2>
+    <h2 class="text-center">Détail du ticket {{ object.title }}
+
+    <div class="card_detail">
         {% include 'include/ticket_snippet.html' %}
-    {% endif %}
+    </div>
 
     <div class="row">
         <div class="text-center">

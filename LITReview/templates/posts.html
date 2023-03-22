@@ -7,8 +7,8 @@
 
     {% for ticket in ticket_list %}
 
-        {% if ticket.review_ticket.all %}
-            {% for review in ticket.review_ticket.all %}
+        {% if ticket.reviews.all %}
+            {% for review in ticket.reviews.all %}
                 {% if review.author.id == user.id %}
                     {% include 'include/review_snippet.html' %}
                 {% endif %}
