@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}LITReview – Détail de la critique{{ object.ticket.title }}{% endblock %}
+
+{% block content %}
+
+    <h2 class="text-center">Critique du ticket {{ ticket.title }} :</h2>
+
+    <div class="card_detail">
+        {% include 'include/review_snippet.html' %}
+    </div>
+
+    <div class="row">
+        <div class="text-center">
+            <a class="btn btn-success" href="{% url 'home' %}" role="button">Revenir à l'accueil</a>
+        </div>
+    </div>
+
+
+
+{% endblock content %}
+
+
+{% for ticket in review.ticket.reviews %}
+        
+<h2 class="text-center">Ticket :</h2>
+{% include 'include/ticket_snippet.html' %}
+
+<h2 class="text-center">Critique :</h2>
+{% include 'include/review_snippet.html' %}
+
+{% endfor %}
+
+<div class="row">
+<div class="text-center">
+    <a class="btn btn-success" href="{% url 'home' %}" role="button">Revenir à l'accueil</a>
+</div>
+</div>
