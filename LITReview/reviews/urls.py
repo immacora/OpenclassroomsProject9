@@ -13,6 +13,7 @@ from .views import (
     ReviewDeleteView,
     )
 
+
 urlpatterns = [
     path('', FeedsListView.as_view(), name='home'),
     path('posts/', PostsListView.as_view(), name='posts'),

@@ -1,8 +1,10 @@
 from django import forms
+
 from .models import Ticket, Review
 
 
 class TicketForm(forms.ModelForm):
+    """Formulaire de création de ticket."""
 
     class Meta:
         model = Ticket
@@ -10,6 +12,7 @@ class TicketForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
+    """Formulaire de création de critique."""
 
     class Meta:
         model = Review

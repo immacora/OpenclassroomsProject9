@@ -6,6 +6,7 @@ from django.urls import reverse
 
 
 class Ticket(models.Model):
+    """Ticket."""
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -31,6 +32,7 @@ class Ticket(models.Model):
     author = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
+        related_name='ticket_author',
         verbose_name='auteur',
     )
 
@@ -45,6 +47,7 @@ class Ticket(models.Model):
 
 
 class Review(models.Model):
+    """Critique."""
     RATING_NUMBER = (
         (1, '-1'),
         (2, '-2'),
@@ -83,6 +86,7 @@ class Review(models.Model):
     author = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
+        related_name='review_author',
         verbose_name='auteur',
     )
 
@@ -94,4 +98,3 @@ class Review(models.Model):
     
     def get_absolute_url(self):
         return reverse('review_detail', args=[str(self.id)])
-

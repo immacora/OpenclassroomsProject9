@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}LITReview – Modifier votre critique{% endblock %}
+
+{% block content %}
+
+    <h2 class="text-center">Modifier votre critique</h2>
+
+    <div class="d-flex justify-content-center">
+        <div class="card border-dark">
+            <div class="card-header bg-transparent border-dark">
+                <h5 class="text-left">Vous êtes en train de poster en réponse à</h5>
+            </div>
+            <div class="card-body text-dark">
+                {% include 'include/ticket_snippet.html' %}
+            </div>
+            <div class="card-footer bg-transparent border-dark">
+                <h5 class="text-left">Critique</h5>
+                <div class="card-body text-dark">
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="text-end">
+                            <input class="btn btn-success" type="submit" value="Envoyer">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="text-center">
+            <a class="btn btn-success" href="{% url 'posts' %}" role="button">Annuler</a>
+        </div>
+    </div>
+
+{% endblock content %}
