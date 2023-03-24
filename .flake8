@@ -2,12 +2,18 @@
 
 exclude=
     __pycache__,
-    documentation/,
-    env/,
+
     .gitignore,
-    README.md,
     requirements.txt,
 
+    documentation/,
+    env/,
+    LITReview/reviews/migrations/,
+    LITReview/reviews/tests.py,
+    LITReview/users/migrations/,
+    LITReview/users/tests.py,
+    
+    README.md,
 
 max-line-length = 119
 max-doc-length = 119
