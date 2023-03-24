@@ -73,7 +73,7 @@ class ReviewCreateView(LoginRequiredMixin, FormView):
 
     def get(self, request):
         return render(request, self.template_name, self.context)
-        
+
     def post(self, request):
         form = TicketForm(request.POST, request.FILES)
         ticket_title = request.POST['title']
@@ -88,8 +88,19 @@ class ReviewCreateView(LoginRequiredMixin, FormView):
             ticket_image = None
 
         if form.is_valid():
-            new_ticket = Ticket(title=ticket_title, description=ticket_description, image=ticket_image, author=self.request.user)
-            new_review = Review(headline=review_headline, rating=review_rating, body=review_body, ticket=new_ticket, author=self.request.user)
+            new_ticket = Ticket(
+                title=ticket_title,
+                description=ticket_description,
+                image=ticket_image,
+                author=self.request.user
+            )
+            new_review = Review(
+                headline=review_headline,
+                rating=review_rating,
+                body=review_body,
+                ticket=new_ticket,
+                author=self.request.user
+            )
             new_ticket.save()
             new_review.save()
             return redirect('home')
@@ -110,7 +121,7 @@ class ReviewAddView(LoginRequiredMixin, FormView):
             'ticket': ticket,
         }
         return render(request, self.template_name, context)
-    
+
     def post(self, request, pk):
         form = self.form_class(request.POST)
         if form.is_valid():
@@ -144,7 +155,7 @@ class ReviewUpdateView(LoginRequiredMixin, UpdateView):
     form_class = ReviewForm
     template_name = 'review_edit.html'
     login_url = 'login'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         review = Review.objects.get(pk=self.kwargs['pk'])

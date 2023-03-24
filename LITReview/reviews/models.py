@@ -38,10 +38,10 @@ class Ticket(models.Model):
 
     class Meta:
         ordering = ["-time_created"]
-    
+
     def __str__(self):
         return self.title
-    
+
     def get_absolute_url(self):
         return reverse('ticket_detail', args=[str(self.id)])
 
@@ -95,6 +95,6 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Critique du ticket : {self.ticket.title}"
-    
+
     def get_absolute_url(self):
         return reverse('review_detail', args=[str(self.id)])

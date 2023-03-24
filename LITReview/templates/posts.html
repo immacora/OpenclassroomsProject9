@@ -13,14 +13,16 @@
                     {% include 'include/review_snippet.html' %}
                 {% endif %}
             {% endfor %}
-        {% else %}
-            {% if ticket.author.id == user.id %}
-                {% include 'include/ticket_snippet.html' %}
-            {% endif %}
         {% endif %}
 
-        {% include 'include/ticket_snippet.html' %}
-    
+        {% if ticket.author.id == user.id %}
+            {% include 'include/ticket_snippet.html' %}
+        {% endif %}
+
+    {% empty %}
+        <hr style="color: transparent; margin-top: 30px;">
+        <h2 class="text-center">Créez des critiques et des demandes de critiques pour afficher vos publications</h2>
+
     {% endfor %}
     
 {% endblock %}
