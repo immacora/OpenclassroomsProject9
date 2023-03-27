@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}LITReview – Abonnements{% endblock %}
+
+{% block content %}
+
+    <h2 class="text-center">Suivre d'autres utilisateurs</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="d-flex flex-row">
+            <div class="p-2 flex-grow-1">
+                {{ form.add_follower|as_crispy_field }}
+            </div>
+            <div class="p-2">
+                <button type="submit" class="btn btn-success">Envoyer</button>
+            </div>
+        </div>
+
+        {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <ul class="messages">
+                    {% for message in messages %}
+                        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        
+        <h2 class="text-center">Abonnements</h2>
+        <table class="table table-bordered border-dark">
+            {% for subscription in subscriptions %}
+                <tr>
+                    <td style="column-width: 50rem;">{{ subscription.followed_user }}</td>
+                    <td style="column-width: 6rem; text-align: center;">
+                        <button class="btn btn-link" name="unfollow" value={{ subscription.pk }}>Désabonner</button>
+                    </td>
+                </tr>
+            {% empty %}
+                <p>Vous n'êtes abonné à aucun utilisateur.</p>
+            {% endfor %}
+        </table>
+    </form>
+
+    <h2 class="text-center">Abonnés</h2>
+    <table class="table table-bordered border-dark">
+        {% for subscriber in subscribers %}
+            <tr>
+                <td>{{ subscriber.followed_user }}</td>
+            </tr>
+        {% empty %}
+            <p>Votre compte n'est pas encore suivi par d'autres utilisateurs.</p>
+        {% endfor %}
+    </table>
+
+{% endblock %}

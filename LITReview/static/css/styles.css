@@ -53,6 +53,15 @@ footer {
   background-color: #595959;
 }
 
+.btn-link {
+  color: #595959;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.btn-link:hover {
+  color: #A68365;
+}
+
 /* STAR */
 .bi {
   padding: 0.2rem;
