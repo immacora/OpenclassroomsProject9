@@ -22,7 +22,7 @@ class CustomUser(AbstractUser):
 
 
 class UserFollower(models.Model):
-    """Abonnés."""
+    """Abonné."""
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,

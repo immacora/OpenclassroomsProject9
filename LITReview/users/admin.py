@@ -8,10 +8,11 @@ CustomUser = get_user_model()
 
 
 class CustomUserAdmin(UserAdmin):
+    """Gestion de l'utilisateur personnalisé dans l'interface d'administration."""
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
-    list_display = ['username', 'email', 'is_staff',]
+    list_display = ['username', 'email', 'is_staff']
 
 
 admin.site.register(CustomUser, CustomUserAdmin)

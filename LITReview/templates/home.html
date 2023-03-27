@@ -21,6 +21,11 @@
         {% else %}
             {% include 'include/ticket_snippet.html' %}
         {% endif %}
+    
+    {% empty %}
+        <hr style="color: transparent; margin-top: 30px;">
+        <h2 class="text-center">Abonnez-vous à d'autres utilisateurs pour afficher leurs publications</h2>
+    
     {% endfor %}
 
 {% endblock %}
