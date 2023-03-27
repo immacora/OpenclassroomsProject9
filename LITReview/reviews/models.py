@@ -49,6 +49,7 @@ class Ticket(models.Model):
 class Review(models.Model):
     """Critique."""
     RATING_NUMBER = (
+        (0, '-0'),
         (1, '-1'),
         (2, '-2'),
         (3, '-3'),
@@ -62,8 +63,9 @@ class Review(models.Model):
     )
     rating = models.PositiveSmallIntegerField(
         'Note ',
+        default=0,
         validators=[MinValueValidator(0), MaxValueValidator(5)],
-        choices=RATING_NUMBER
+        choices=RATING_NUMBER,
     )
     headline = models.CharField(
         'Titre ',
