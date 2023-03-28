@@ -29,6 +29,11 @@
                         {% if user.is_authenticated %}
                             <div class="nav justify-content-end" id="navbarNav">
                                 <ul class="nav justify-content-end">
+                                    {% if user.is_staff %}  
+                                        <li>        
+                                            <a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">Interface d'administration</a>
+                                        </li>
+                                    {% endif %}
                                     <li class="nav-item">
                                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Flux</a>
                                     </li>
