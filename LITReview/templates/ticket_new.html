@@ -10,8 +10,10 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
-        <input class="btn btn-success" type="submit" value="Envoyer">
-        <a class="btn btn-success" href="{% url 'home' %}" role="button">Annuler</a>
+        <div class="text-end">
+            <input class="btn btn-success" type="submit" value="Envoyer">
+            <a class="btn btn-success" href="{% url 'home' %}" role="button">Annuler</a>
+        </div>
     </form>
 
 {% endblock %}

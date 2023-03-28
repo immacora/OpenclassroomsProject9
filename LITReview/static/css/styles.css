@@ -62,6 +62,30 @@ footer {
   color: #A68365;
 }
 
+/* FORM */
+.form-register {
+  text-align: center;
+}
+
+.form-add_follower {
+  height: 2.5rem;
+}
+
+#div_id_rating div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 3rem;
+}
+#div_id_rating div .form-check-label {
+  padding-left: 0.5rem;
+}
+
+/* TABLE */
+.table tr {
+  vertical-align: middle;
+}
+
 /* STAR */
 .bi {
   padding: 0.2rem;
