@@ -20,8 +20,8 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['password1'].label = ""
         self.fields['password2'].label = ""
         self.fields['username'].widget = forms.TextInput(attrs={'class': 'form-register', 'placeholder': "Nom d'utilisateur"})
-        self.fields['password1'].widget = forms.TextInput(attrs={'class': 'form-register', 'placeholder': "Mot de passe"})
-        self.fields['password2'].widget = forms.TextInput(attrs={'class': 'form-register', 'placeholder': "Confirmer le mot de passe"})
+        self.fields['password1'].widget = forms.PasswordInput(attrs={'class': 'form-register', 'placeholder': "Mot de passe"})
+        self.fields['password2'].widget = forms.PasswordInput(attrs={'class': 'form-register', 'placeholder': "Confirmer le mot de passe"})
 
 
 class CustomUserChangeForm(UserChangeForm):
