@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from .models import Ticket, Review
+from users.models import UserFollower
 from .forms import TicketForm, ReviewForm
 
 
@@ -17,6 +18,19 @@ class FeedsListView(LoginRequiredMixin, ListView):
     queryset = Ticket.objects.all()
     template_name = 'home.html'
     login_url = 'login'
+
+    def get_queryset(self):
+
+        followed_users = UserFollower.objects.filter(user=self.request.user.id).values('followed_user')
+
+        queryset = Ticket.objects.filter(
+            Q(author=self.request.user) |
+            Q(author__in=followed_users) |
+            Q(reviews__author=self.request.user.id) |
+            Q(reviews__author__in=followed_users)
+        )
+        queryset = queryset.order_by(Coalesce('reviews__time_created', 'time_created').desc())
+        return queryset
 
 
 class PostsListView(LoginRequiredMixin, ListView):
