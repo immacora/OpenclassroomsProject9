@@ -44,8 +44,8 @@ class FollowsPageView(LoginRequiredMixin, FormView):
             'subscribers': subscribers,
         }
         return render(request, self.template_name, context)
-    
-    def post(self, request, pk):
+
+    def post(self, request, pk):  # noqa: C901
         form = self.form_class(request.POST)
 
         if form.is_valid():
@@ -59,7 +59,9 @@ class FollowsPageView(LoginRequiredMixin, FormView):
                             try:
                                 UserFollower.objects.create(user=request.user, followed_user=user_to_follow)
                             except IntegrityError:
-                                messages.error(request, "L'utilisateur saisi se trouve déjà dans la liste de vos abonnements.")
+                                messages.error(
+                                    request, "L'utilisateur saisi se trouve déjà dans la liste de vos abonnements."
+                                    )
                     except CustomUser.DoesNotExist:
                         messages.error(request, "L'utilisateur saisi n'existe pas.")
 

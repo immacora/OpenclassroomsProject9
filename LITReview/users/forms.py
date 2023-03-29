@@ -12,16 +12,22 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = CustomUser
         fields = ['username',]
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.fields['username'].label = ""
         self.fields['password1'].label = ""
         self.fields['password2'].label = ""
-        self.fields['username'].widget = forms.TextInput(attrs={'class': 'form-register', 'placeholder': "Nom d'utilisateur"})
-        self.fields['password1'].widget = forms.PasswordInput(attrs={'class': 'form-register', 'placeholder': "Mot de passe"})
-        self.fields['password2'].widget = forms.PasswordInput(attrs={'class': 'form-register', 'placeholder': "Confirmer le mot de passe"})
+        self.fields['username'].widget = forms.TextInput(
+            attrs={'class': 'form-register', 'placeholder': "Nom d'utilisateur"}
+            )
+        self.fields['password1'].widget = forms.PasswordInput(
+            attrs={'class': 'form-register', 'placeholder': "Mot de passe"}
+            )
+        self.fields['password2'].widget = forms.PasswordInput(
+            attrs={'class': 'form-register', 'placeholder': "Confirmer le mot de passe"}
+            )
 
 
 class CustomUserChangeForm(UserChangeForm):
@@ -43,4 +49,6 @@ class UserFollowerManagementForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.fields['add_follower'].widget = forms.TextInput(attrs={'class': 'form-add_follower', 'placeholder': "Nom d'utilisateur"})
+        self.fields['add_follower'].widget = forms.TextInput(
+            attrs={'class': 'form-add_follower', 'placeholder': "Nom d'utilisateur"}
+            )
