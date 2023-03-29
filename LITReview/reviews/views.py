@@ -1,6 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.db.models import Q
+from django.db.models.functions import Coalesce
 from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
@@ -18,11 +20,18 @@ class FeedsListView(LoginRequiredMixin, ListView):
 
 
 class PostsListView(LoginRequiredMixin, ListView):
-    """Afficher la liste des tickets et critiques de l'utilisateur connecté."""
-    model = Ticket
+    """Afficher la liste des tickets et critiques de l'utilisateur connecté par ordre chronologique descendant."""
     context_object_name = 'ticket_list'
     template_name = 'posts.html'
     login_url = 'login'
+
+    def get_queryset(self):
+        queryset = Ticket.objects.filter(
+            Q(author=self.request.user) |
+            Q(reviews__author=self.request.user.id)
+        )
+        queryset = queryset.order_by(Coalesce('reviews__time_created', 'time_created').desc())
+        return queryset
 
 
 class TicketCreateView(LoginRequiredMixin, CreateView):
