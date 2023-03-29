@@ -61,6 +61,7 @@ Pour générer rapport flake8 (vérification de la conformité PEP8), saisir : f
 
         1.1 : Via l'interface d'administration :
             - Se connecter avec les identifiants de l'administrateur existant (ci-dessus)
+            - Se rendre sur l'interface d'administration via le menu de navigation
             - Cliquer sur le bouton + Ajouter de l'onglet Utilisateurs
                 * Compte administrateur : 
                     - Saisir le nom d'utilisateur et le mot de passe souhaités
@@ -92,7 +93,7 @@ Pour générer rapport flake8 (vérification de la conformité PEP8), saisir : f
                 Créer un ticket de demande de critique et la critique correspondante
             - Affichage du flux personnalisé de l'utilisateur connecté :
                 * Consulter la liste de ses dernières publications (tickets et critiques, réponses comprises) ainsi que celles des utilisateurs qu'il suit
-                * Créer une critique en réponse à un ticket qui n'a pas encore reçu de réponse via le bouton "Créer une critique" du ticket
+                * Créer une critique en réponse à un ticket qui n'a pas encore reçu de réponse via le bouton du ticket "Créer une critique"
 
         2.3 : Page de Posts
             - Consulter ses critiques et tickets (affichage séparé)

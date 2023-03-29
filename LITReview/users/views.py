@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView
 
 from .models import UserFollower
-from .forms import CustomUserCreationForm, AddUserFollowerForm
+from .forms import CustomUserCreationForm, UserFollowerManagementForm
 
 CustomUser = get_user_model()
 
@@ -24,13 +24,13 @@ class FollowsPageView(LoginRequiredMixin, FormView):
     """
     Afficher les abonnements/abonnés de l'utilisateur connecté et lui permettre d'en suivre ou arrêter d'en suivre.
 
-    Vérifie si le nom d'utilisateur saisi dans l'input fait partie des utilisateurs enregistrés dans la db.
-    Vérifie que l'utilisateur correspondant dans la db n'a pas déjà été ajouté dans les abonnements.
-    Crée l'utilisateur suivi dans la table pivot.
     Affiche les abonnements et les abonnés de l'utilisateur connecté.
+    Si l'un des deux boutons du template envoie une donnée,
+    vérifie le nom d'utilisateur saisi dans l'input et crée l'abonné dans la table pivot,
+    ou supprime l'abonné.
     """
     template_name = 'follows.html'
-    form_class = AddUserFollowerForm
+    form_class = UserFollowerManagementForm
     message = ''
     login_url = 'login'
 
@@ -47,8 +47,6 @@ class FollowsPageView(LoginRequiredMixin, FormView):
     
     def post(self, request, pk):
         form = self.form_class(request.POST)
-        data = request.POST
-        print(data)
 
         if form.is_valid():
             try:
@@ -66,15 +64,13 @@ class FollowsPageView(LoginRequiredMixin, FormView):
                         messages.error(request, "L'utilisateur saisi n'existe pas.")
 
                 elif request.POST['unfollow']:
-                    ################# AJOUTER LA FONCTIONNALITE DELETE #################
-
-                    user_to_unfollow = request.POST['unfollow']
-                    print(user_to_unfollow)
-
-                    ################# AJOUTER LA FONCTIONNALITE DELETE #################
+                    user_to_unfollow_id = request.POST['unfollow']
+                    user_to_unfollow = UserFollower.objects.get(id=user_to_unfollow_id)
+                    user_to_unfollow.delete()
 
             except MultiValueDictKeyError:
                 messages.error(request, "Vous n'avez pas saisi de nom d'utilisateur.")
+
             return redirect('follows', pk)
 
         return render(request, self.template_name, context={'form': form})
