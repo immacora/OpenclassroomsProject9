@@ -4,6 +4,8 @@ Développez une application Web MVP en utilisant Django
 Application web MVP conforme aux directives PEP 8, développée pour une exécution locale à l'aide du framework Django selon un cahier des charges, des wireframes et une structure de base de données définis.
 L'application LITReview permet à ses utilisateurs authentifiés de consulter les critiques de livres ou d’articles rédigés par les utilisateurs qu'ils suivent, d'en publier, ou d'en solliciter via la création de ticket.
 
+![LITReview](https://user-images.githubusercontent.com/76613773/228791438-6f013a2f-8970-4510-b9ea-e2fe91983d4f.jpg)
+
 ## Prérequis :
   - python 3.11.2
   - pip
