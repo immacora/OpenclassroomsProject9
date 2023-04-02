@@ -17,7 +17,6 @@ L'application LITReview permet à ses utilisateurs authentifiés de consulter le
   - Dirigez-vous dans le répertoire créé : cd OpenclassroomsProject9
   - Créez l’environnement virtuel du projet : py -m venv env
   - Activez l’environnement virtuel : env\Scripts\activate
-  - Dirigez-vous dans le répertoire LITReview : cd LITReview
   - Installez les modules requis : pip install -r requirements.txt
 
 ## Contenu
