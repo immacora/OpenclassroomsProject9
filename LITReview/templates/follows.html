@@ -49,7 +49,7 @@
     <table class="table table-bordered border-dark">
         {% for subscriber in subscribers %}
             <tr>
-                <td>{{ subscriber.followed_user }}</td>
+                <td>{{ subscriber.user }}</td>
             </tr>
         {% empty %}
             <p>Votre compte n'est pas encore suivi par d'autres utilisateurs.</p>
